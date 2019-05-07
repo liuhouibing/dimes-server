@@ -57,6 +57,10 @@
     "dataSource": "db",
     "public": true
   },
+  "Post": {
+      "dataSource": "db",
+      "public": true
+  },
   "Attendee": {
     "dataSource": "db",
     "public": true
@@ -68,5 +72,17 @@
   "BusinessTrip": {
     "dataSource": "db",
     "public": true
+  },
+    "postsum": {
+      "dataSource": "db",
+      "public": true
+  },
+  "Email": {
+    "dataSource": "emailDs"
+  },
+  "user": {
+    "dataSource": "db",
+    "public": true,
+    "options": {}
   }
 }

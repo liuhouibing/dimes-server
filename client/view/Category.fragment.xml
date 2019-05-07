@@ -1,0 +1,21 @@
+<core:FragmentDefinition
+   xmlns="sap.m"
+   xmlns:core="sap.ui.core" >
+   <Dialog
+      title="新增事件">
+      
+<VBox class="sapUiSmallMargin">                        
+            <Label text="事件"  required="true"/>
+            <TextArea id="InputName" value="{oCategoryModel>/Name}" width = "100%" />
+
+            <Label text="事件日期"  required="true"/>
+            <DatePicker id="InputEventDate" value="{oCategoryModel>/EventDate}" width = "100%"   valueFormat="yyyy-MM-dd" displayFormat="yyyy-MM-dd" />
+</VBox>   
+
+  <buttons>
+      <Button id="btnCategorySave" text="保存" press="onCategorySave"/>
+      <Button id="btnCategoryCancel" text="取消" press="onCategoryCancel"/>
+  </buttons>
+
+</Dialog>
+</core:FragmentDefinition>

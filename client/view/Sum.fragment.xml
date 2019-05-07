@@ -1,0 +1,59 @@
+<core:FragmentDefinition
+   xmlns="sap.m"
+   xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+   xmlns:core="sap.ui.core" >
+   <Dialog
+      title="事件分类汇总">
+      
+<VBox class="sapUiSmallMargin">                        
+					<Table
+							id="subtable"
+							width="auto"
+							class="sapUiResponsiveMargin"
+							growing="true"
+							items="{path:'oSumModel>/d/results'}"
+							>
+																
+							<columns>
+								<Column width="33%" id="eventDateColumn" vAlign="Middle">
+									<Text text="时间" id="categoryColumnEventDate"/>
+								</Column>
+								<Column width="33%" id="categoryColumn" vAlign="Middle">
+									<Text text="事件" id="categoryColumnTitle"/>
+								</Column>
+								<Column width="33%" id="unitNumberColumn" hAlign="End" vAlign="Middle">
+									<Text text="总金额" id="unitNumberColumnPrice"/>
+								</Column>
+							</columns>
+
+							<items>
+								<ColumnListItem
+									vAlign="Middle"									
+									>
+									<cells>
+										<Text
+											text="{oSumModel>EventDate}"/>
+										<Link
+											text="{oSumModel>Category}" press="handleSelectCategory" app:Category="{oSumModel>Category}"/>
+										<ObjectNumber
+											number="{
+													path: 'oSumModel>Price',
+													formatter: '.formatter.numberUnit'
+												}"
+											state="{
+													path: 'oSumModel>Price',
+													formatter: '.formatter.priceState'
+												}"
+											unit="{oSumModel>Currency}"/>										
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+</VBox>   
+
+  <buttons>
+      <Button id="btnSumCancel" text="Cancel" press="onSumCancel"/>
+  </buttons>
+
+</Dialog>
+</core:FragmentDefinition>

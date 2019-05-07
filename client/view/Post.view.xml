@@ -1,0 +1,122 @@
+<mvc:View
+		controllerName="sap.ui.demo.bulletinboard.controller.Post"
+		xmlns="sap.m"
+		xmlns:form="sap.ui.layout.form"
+		xmlns:mvc="sap.ui.core.mvc"
+		xmlns:semantic="sap.m.semantic">
+	<semantic:FullscreenPage
+			id="page"
+			busy="{postView>/busy}"
+			busyIndicatorDelay="0"
+			navButtonPress=".onNavBack"
+			showNavButton="true"
+			title="{i18n>objectTitle}">
+		<semantic:content>
+			<ObjectHeader
+					id="objectHeader"
+					title="{Title}"
+					number="{
+						path: 'Price',
+						formatter: '.formatter.numberUnit'
+					}"
+					numberUnit="{Currency}"
+					backgroundDesign="Translucent">
+			</ObjectHeader>
+			<IconTabBar id="iconTabBar"
+						expanded="{=! ${device>/system/phone}}"
+						class="sapUiNoContentPadding"
+						>
+				<items>
+					<IconTabFilter icon="sap-icon://hint" key="info">
+						<form:SimpleForm layout="ResponsiveGridLayout">
+							<form:content>
+								<Label text="{i18n>postDateLabel}"/>
+								<Text text="{
+									path: 'Timestamp'
+								}"/>
+								<Label text="{i18n>postDescriptionLabel}"/>
+								<Text text="{Description}"/>
+ 								<ToggleButton width = "100%"												
+												id="flaggedButton"
+												tooltip="{i18n>flaggedTooltip}"
+												icon="sap-icon://delete"												
+ 												pressed="{
+														path: 'Flagged',
+														type: '.types.flagged'
+													}"
+												press="handleToggleButtonPress"
+												/>
+							</form:content>
+						</form:SimpleForm>
+					</IconTabFilter>
+					<IconTabFilter icon="sap-icon://inspection" key="statistics" >
+					<Table
+							id="subtable"
+							width="auto"
+							class="sapUiResponsiveMargin"
+							growing="true"
+							items="{path:'subTableModel>/d/results'}"
+							>
+																
+							<columns>
+								<Column width="33%" id="nameColumn" vAlign="Middle">
+									<Text text="{i18n>TableNameColumnTitle}" id="nameColumnTitle"/>
+								</Column>
+								<Column width="33%" id="categoryColumn" vAlign="Middle">
+									<Text text="{i18n>TableCategoryColumnTitle}" id="categoryColumnTitle"/>
+								</Column>
+								<Column width="33%" id="unitNumberColumn" hAlign="End" vAlign="Middle">
+									<Text text="{i18n>TableUnitNumberColumnTitle}" id="unitNumberColumnTitle"/>
+								</Column>
+								<Column width="33%" id="unitTimestampColumn" hAlign="End" vAlign="Middle">
+									<Text text="{i18n>postDateLabel}" id="unitNumberColumnPostDate"/>
+								</Column>
+								<Column width="80px" id="flaggedColumn" demandPopin="true" vAlign="Middle"/>
+							</columns>
+
+							<items>
+								<ColumnListItem
+									vAlign="Middle"									
+									>
+									<cells>
+										<ObjectIdentifier
+											title="{subTableModel>Title}"/>
+										<Text
+											text="{subTableModel>Category}"/>
+										<ObjectNumber
+											number="{
+													path: 'subTableModel>Price',
+													formatter: '.formatter.numberUnit'
+												}"
+											state="{
+													path: 'subTableModel>Price',
+													formatter: '.formatter.priceState'
+												}"
+											unit="{subTableModel>Currency}"/>
+											<Text
+											text="{subTableModel>Timestamp}"/>
+
+											<ToggleButton
+												id="flaggedButton11"
+												tooltip="{i18n>flaggedTooltip}"
+												icon="sap-icon://decline"
+												visible = "{= ${subTableModel>Flagged}  > 0 ? true : false }"
+												enabled = "false"
+												pressed="{
+														path: 'subTableModel>Flagged',
+														type: '.types.flagged'
+													}"
+												/>
+
+
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+		</semantic:content>
+	</semantic:FullscreenPage>
+</mvc:View>

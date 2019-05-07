@@ -1,24 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-	<meta charset="UTF-8">
-	<title>Title</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta charset="utf-8">
+	<title> 个人往来账 </title>
+	<script
+		id="sap-ui-bootstrap"
+		src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js"
+		data-sap-ui-theme="sap_bluecrystal"
+		data-sap-ui-libs="sap.m"
+		data-sap-ui-compatVersion="edge"
+		data-sap-ui-preload="off"
+		data-sap-ui-resourceroots='{
+			"sap.ui.demo.bulletinboard": "./"
+		}'>
+	</script>
+	<script>
+		sap.ui.getCore().attachInit(function () {
+			new sap.ui.core.ComponentContainer({
+				name : "sap.ui.demo.bulletinboard"
+			}).placeAt("content");
+		});
+
+	</script>
 </head>
-<body>
-	<h1>LoopBack Rocks!</h1>
-	<h2>Data Maintenance</h2>
-	<p>If you want to initialize your data from the JSON files that are located in storage/sampledata click on the following link</p>
-	<p>
-		<a href="initializedata.html">Initialize data ...</a>
-	</p>
-	<h2>Retrieve Data</h2>
-	<p>This are a few sample requests to retrieve data via the n-odata-server package</p>
-	<ul>
-		<li><a href="odata/Contacts">odata/Contacts</a> </li>
-		<li><a href="odata/People?$top=3">odata/People?$top=3</a> </li>
-		<li><a href="odata/People?$top=2&$skip=3">odata/People?$top=2&$skip=3</a> </li>
-		<li><a href="odata/People?$select=firstname,age">odata/People?$select=firstname,age</a> </li>
-		<li><a href="odata/People?$count">odata/People?$count</a> </li>
-	</ul>
+<body class="sapUiBody" id="content">
 </body>
 </html>

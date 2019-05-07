@@ -1,0 +1,42 @@
+<core:FragmentDefinition
+   xmlns="sap.m"
+   xmlns:core="sap.ui.core" >
+   <Dialog
+      title="新增记录">
+      
+<VBox class="sapUiSmallMargin">
+            <RadioButtonGroup id="RadioGroupIncomeExpense"  width="500px" columns="2" select="handleRadioButtonGroup" >
+                <RadioButton text="收到" selected="true" />
+                <RadioButton text="支出"  />
+            </RadioButtonGroup>
+
+            <Label text="姓名"  required="true" />
+            <Input id="InputTitle" value="{oModel>/Title}" />
+
+            <Label text="金额"  required="true" id="LabelPrice" />
+            <Input id="InputPrice" value="{oModel>/Price}" />
+
+            <Label text="事件"  required="true"/>            
+            <ComboBox id = "ComboBoxCategory" width = "100%"
+                showSecondaryValues= "false"
+                value="{oModel>/Category}"
+                items="{
+                    path: '/Categorys',
+                    sorter: { path: 'CategoryID' }
+                }">
+                <core:ListItem key="{CategoryID}" text="{Name}" additionalText = "{Name}"/>
+            </ComboBox>
+
+            <Label text="联系方式" />
+            <Input id="InputContact" value="{oModel>/Contact}" />
+
+            <Label text="描述" />
+            <TextArea id="InputDescription" value="{oModel>/Description}" width = "100%" />
+</VBox>   
+
+  <buttons>
+      <Button id="btnSave" text="保存" press="onPostFormSave"/>
+      <Button id="btnCancel" text="取消" press="onPostFormCancel"/>
+  </buttons>
+   </Dialog>
+</core:FragmentDefinition>

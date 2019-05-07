@@ -1,20 +1,41 @@
 {
-  "name": "Category",
-  "plural": "Categorys",
+  "name": "Post",
+  "plural": "Posts",
   "base": "PersistedModel",
+  "idInjection": true,
+  "forceId": true,
   "options": {
     "validateUpsert": true
   },
   "persistUndefinedAsNull": true,
   "properties": {
-    "CategoryID": {
-      "type": "string",
-      "id": true      
+    "PostID": {
+      "type": "number",
+      "id": true,
+      "generated": true      
     },
-    "Name": {
+    "Title": {
       "type": "string"
     },
-    "EventDate": {
+    "Description": {
+      "type": "string"
+    },
+    "Category": {
+      "type": "string"
+    },
+    "Contact": {
+      "type": "string"
+    },
+    "Currency": {
+      "type": "string"
+    },
+    "Price": {
+      "type": "number"
+    },
+    "Flagged": {
+      "type": "number"
+    },
+    "Timestamp": {
       "type": "string"
     },
     "UserID": {

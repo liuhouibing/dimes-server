@@ -1,24 +1,27 @@
 {
-  "name": "Category",
-  "plural": "Categorys",
+  "name": "postsum",
+  "plural": "postsums",
   "base": "PersistedModel",
   "options": {
     "validateUpsert": true
   },
   "persistUndefinedAsNull": true,
-  "properties": {
-    "CategoryID": {
+  "properties": {    
+    "Category": {
       "type": "string",
-      "id": true      
-    },
-    "Name": {
-      "type": "string"
-    },
-    "EventDate": {
-      "type": "string"
+      "id": true
     },
     "UserID": {
-      "type": "string"
+          "type": "string"    
+    },
+    "Currency": {
+              "type": "string"    
+    },    
+    "EventDate": {
+                  "type": "string"    
+    },    
+    "Price": {
+      "type": "number"
     }
   },
   "validations": [],
