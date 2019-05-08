@@ -1,7 +1,4 @@
-
-
-
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!doctype html>
 <html>
 <head>
@@ -9,31 +6,39 @@
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
     <style>
-        body         { padding-top:80px; }
+        body         { padding-top:20px; }
+        .center {
+          text-align: center;
+         }
     </style>
 
 <script type="text/javascript">
-  function toggle_visibility(id) {
+  function toggle_visibility(id, id2) {
      var e = document.getElementById(id);
+     var e2 = document.getElementById(id2);
+
      if(e.style.display == 'block')
-        e.style.display = 'none';
+        e.style.display = 'none';        
      else
         e.style.display = 'block';
+
+      e2.style.display = 'none';
   }
 </script>
 
 </head>
+
 <body>
 <div class="container">
 <div class="col-sm-6 col-sm-offset-3">
-
-    <h1><span class="fa fa-sign-in"></span> Login</h1>
- 
+  <div class="center">
+    <h1><span class="fa fa-sign-in"></span> 登陆</h1>
+ </div>
     <div id="login" style="display:block">
     <section>
       <form action="/login" method="post">
         <fieldset>
-          <legend>登陆</legend>
+          <legend></legend>
           <div class="form-group">
             <label for="email">邮件地址:</label>
             <input type="text" class="form-control"  name="email" value="<%= email %>"/>
@@ -42,7 +47,7 @@
             <label for="password">密码:</label>
             <input type="password" class="form-control"  name="password" value="<%= password %>"/>
           </div>
-          <div>
+          <div class="center">
             <input type="submit"  class="btn btn-info btn-lg" value="点击登录"/>
           </div>
         </fieldset>
@@ -52,22 +57,22 @@
 
     <hr>
 
-    <p> 如果您还没账户， <a href="#" onclick="toggle_visibility('signup');">请点这里</a>.</p>
+    <p> 如果您还没账户， <a href="#" onclick="toggle_visibility('signup', 'reset');">请点这里</a>.</p>
 
     <div id="signup" style="display:none">
     <section>
       <form action="/api/users" method="post">
         <fieldset>
           <legend>创建账户</legend>
-          <div>
+          <div class="form-group">
             <label for="email">Email:</label>
             <input type="text" class="form-control"  name="email" value="<%= email %>"/>
           </div>
-          <div>
+          <div class="form-group">
             <label for="password">Password:</label>
             <input type="password" class="form-control"  name="password" value="<%= password %>"/>
           </div>
-          <div>
+          <div class="center">
             <input type="submit" class="btn btn-info btn-lg" value="提交注册"/>
           </div>
         </fieldset>
@@ -76,17 +81,17 @@
   </div>
 
     <hr>
-  <p> 如果您忘记了密码，  <a href="#" onclick="toggle_visibility('reset');">请点这里</a>.</p>
+  <p> 如果您忘记了密码，  <a href="#" onclick="toggle_visibility('reset', 'signup');">请点这里</a>.</p>
   <div id="reset" style="display:none">
     <section>
       <form action="/request-password-reset" method="post">
         <fieldset>
           <legend>重置密码</legend>
-          <div>
+          <div class="form-group">
             <label for="email">Email:</label>
             <input type="text" class="form-control"  name="email" value="<%= email %>"/>
           </div>
-          <div>
+          <div class="center">
             <input type="submit" class="btn btn-info btn-lg" value="重置密码"/>
           </div>
         </fieldset>

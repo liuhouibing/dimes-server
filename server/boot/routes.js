@@ -32,20 +32,20 @@ module.exports = function(app) {
       if (err) {
         if(err.details && err.code === 'LOGIN_FAILED_EMAIL_NOT_VERIFIED'){
           res.render('reponseToTriggerEmail', {
-            title: 'Login failed',
+            title: '登陆失败',
             content: err,
             redirectToEmail: '/api/users/'+ err.details.userId + '/verify',
             redirectTo: '/',
-            redirectToLinkText: 'Click here',
+            redirectToLinkText: '点击这里',
             userId: err.details.userId
           });
         } else {
           
           res.render('response', {
-            title: 'Login failed. Wrong username or password',
+            title: '登陆失败. 错误的用户名或密码',
             content: err,
             redirectTo: '/',
-            redirectToLinkText: 'Please login again',
+            redirectToLinkText: '请再次登陆',
           });
         }
         return;
@@ -77,10 +77,10 @@ module.exports = function(app) {
       if (err) return res.status(401).send(err);
 
       res.render('response', {
-        title: 'Password reset requested',
-        content: 'Check your email for further instructions',
+        title: '密码重置',
+        content: '请检查您的邮件，其中有具体的密码重置指导',
         redirectTo: '/',
-        redirectToLinkText: 'Log in'
+        redirectToLinkText: '登陆'
       });
     });
   });
