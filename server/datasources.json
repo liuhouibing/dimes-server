@@ -10,26 +10,25 @@
     "user": "root",
     "connector": "mysql"
   },
-    
-    "emailDs": {
-      "name": "emailDs",
-      "connector": "mail",
-      "transports": [
-        {
-          "type": "smtp",
-          "host": "smtp.gmail.com",
-          "secure": true,
-          "port": 465,
-          "tls": {
-            "rejectUnauthorized": false
-          },
-          "auth": {
-            "user": "liuhoubing@gmail.com",
-            "pass": "Business01"
-          }
+  
+  "emailDs": {
+    "name": "emailDs",
+    "connector": "mail",
+    "transports": [
+      {
+        "type": "smtp",
+        "host": "smtp.gmail.com",
+        "secure": true,
+        "port": 465,
+        "tls": {
+          "rejectUnauthorized": false
+        },
+        "auth": {
+          "user": "liuhoubing@gmail.com",
+          "pass": "Tomcat@6"
         }
-      ]
-    }
-
+      }
+    ]
+  }
 
 }

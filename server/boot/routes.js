@@ -29,23 +29,22 @@ module.exports = function(app) {
       email: req.body.email,
       password: req.body.password
     }, 'user', function(err, token) {
-      if (err) {
+      if (err) {        
         if(err.details && err.code === 'LOGIN_FAILED_EMAIL_NOT_VERIFIED'){
           res.render('reponseToTriggerEmail', {
-            title: '登陆失败',
+            title: '登录失败',
             content: err,
             redirectToEmail: '/api/users/'+ err.details.userId + '/verify',
             redirectTo: '/',
             redirectToLinkText: '点击这里',
             userId: err.details.userId
           });
-        } else {
-          
+        } else {          
           res.render('response', {
-            title: '登陆失败. 错误的用户名或密码',
+            title: '登录失败. 错误的用户名或密码',
             content: err,
             redirectTo: '/',
-            redirectToLinkText: '请再次登陆',
+            redirectToLinkText: '请再次登录',
           });
         }
         return;
@@ -80,7 +79,7 @@ module.exports = function(app) {
         title: '密码重置',
         content: '请检查您的邮件，其中有具体的密码重置指导',
         redirectTo: '/',
-        redirectToLinkText: '登陆'
+        redirectToLinkText: '登录'
       });
     });
   });

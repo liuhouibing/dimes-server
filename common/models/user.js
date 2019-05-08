@@ -7,7 +7,7 @@ var config = require('../../server/config.json');
 var path = require('path');
 
 //Replace this address with your actual address
-var senderAddress = 'noreply@loopback.com'; 
+var senderAddress = 'dimes.businesscard@gmail.com'; 
 
 module.exports = function(User) {
   //send verification email after registration
@@ -16,7 +16,7 @@ module.exports = function(User) {
       type: 'email',
       to: user.email,
       from: senderAddress,
-      subject: 'Thanks for registering.',
+      subject: '感谢您的注册',
       template: path.resolve(__dirname, '../../server/views/verify.ejs'),
       redirect: '/verified',
       user: user
@@ -28,11 +28,9 @@ module.exports = function(User) {
         return next(err);
       }
       context.res.render('response', {
-        title: 'Signed up successfully',
-        content: 'Please check your email and click on the verification link ' +
-            'before logging in.',
-        redirectTo: '/',
-        redirectToLinkText: 'Log in'
+        title: '注册成功',
+        content: '请检查您的邮件，并点击验证链接，然后才可以登录',  redirectTo: '/',
+        redirectToLinkText: '登录'
       });
     });
   });
@@ -40,25 +38,23 @@ module.exports = function(User) {
   // Method to render
   User.afterRemote('prototype.verify', function(context, user, next) {
     context.res.render('response', {
-      title: 'A Link to reverify your identity has been sent '+
-        'to your email successfully',
-      content: 'Please check your email and click on the verification link '+
-        'before logging in',
+      title: '一封包括验证链接的邮件已经被发送到您的邮箱',
+      content: '请检查您的邮件，并点击验证链接，然后才可以登录',
       redirectTo: '/',
-      redirectToLinkText: 'Log in'
+      redirectToLinkText: '登录'
     });
   });
 
   //send password reset link when requested
   User.on('resetPasswordRequest', function(info) {
     var url = 'http://' + config.host + ':' + config.port + '/reset-password';
-    var html = 'Click <a href="' + url + '?access_token=' +
-        info.accessToken.id + '">here</a> to reset your password';
+    var html = '点击 <a href="' + url + '?access_token=' +
+        info.accessToken.id + '">这里</a> 重置您的密码';
 
     User.app.models.Email.send({
       to: info.email,
       from: senderAddress,
-      subject: 'Password reset',
+      subject: '密码重置',
       html: html
     }, function(err) {
       if (err) return console.log('> error sending password reset email');
@@ -69,20 +65,20 @@ module.exports = function(User) {
   //render UI page after password change
   User.afterRemote('changePassword', function(context, user, next) {
     context.res.render('response', {
-      title: 'Password changed successfully',
-      content: 'Please login again with new password',
+      title: '密码修改成功',
+      content: '请用新密码再次登录',
       redirectTo: '/',
-      redirectToLinkText: 'Log in'
+      redirectToLinkText: '登录'
     });
   });
 
   //render UI page after password reset
   User.afterRemote('setPassword', function(context, user, next) {
     context.res.render('response', {
-      title: 'Password reset success',
-      content: 'Your password has been reset successfully',
+      title: '密码重置成功',
+      content: '您的密码已经被成功重置',
       redirectTo: '/',
-      redirectToLinkText: 'Log in'
+      redirectToLinkText: '登陆'
     });
   });
 };
