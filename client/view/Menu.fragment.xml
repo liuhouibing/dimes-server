@@ -6,17 +6,17 @@
 			itemSelect="handleMenuItemPress">
 			<u:MenuItem
 				id = "createCategory"
-				text="新建事件"
-				icon="sap-icon://create"/>
+				text="新增事件"
+				icon="sap-icon://write-new"/>
 			<u:MenuItem
 				id = "listCategories"
 				text="事件列表" 
-				icon="sap-icon://list"/>
+				icon="sap-icon://calendar"/>
 
 			<u:MenuItem
 				id = "changePassword"
 				text="修改密码" 
-				icon="sap-icon://log"/>
+				icon="sap-icon://shield"/>
 
 			<u:MenuItem
 				id = "logout"
