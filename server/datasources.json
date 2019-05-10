@@ -6,7 +6,7 @@
     "url": "mysql://root:root@localhost/walletjs",
     "database": "walletjs",
     "password": "root",
-    "name": "mysql",
+    "name": "db",
     "user": "root",
     "connector": "mysql"
   },
@@ -16,7 +16,7 @@
     "connector": "mail",
     "transports": [
       {
-        "type": "smtp",
+        "type": "SMTP",
         "host": "smtp.gmail.com",
         "secure": true,
         "port": 465,

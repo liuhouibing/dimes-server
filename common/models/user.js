@@ -81,4 +81,6 @@ module.exports = function(User) {
       redirectToLinkText: '登陆'
     });
   });
+
+
 };
