@@ -120,6 +120,11 @@ sap.ui.define([
 				this.getView()._oSumDialog.open();
 			}else if (oButton.item.sId == "logout") {
 				window.location.replace("/logout?access_token=" + jQuery.sap.getUriParameters().get("access_token"));
+			}else if (oButton.item.sId == "changePassword") {
+				window.location.replace("/password-change" 
+				+ "?access_token=" + jQuery.sap.getUriParameters().get("access_token") 				
+				+ "&userId=" + jQuery.sap.getUriParameters().get("userId")
+				+ "&email="  + jQuery.sap.getUriParameters().get("email") );
 			}
 			
 		},

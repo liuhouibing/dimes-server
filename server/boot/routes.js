@@ -55,7 +55,7 @@ module.exports = function (app) {
         email: req.body.email,
         accessToken: token.id,
         userId: token.userId,
-        redirectUrl: '/api/users/change-password?access_token=' + token.id + '&userId' + token.userId
+        redirectUrl: '/api/users/change-password?access_token=' + token.id + '&userId' + token.userId + '&email=' + req.body.email
       });
     });
   });
@@ -93,6 +93,19 @@ module.exports = function (app) {
         req.accessToken.id
     });
   });
+
+
+  app.get('/password-change', function (req, res, next) {
+    //if (!req.body.access_token) return res.sendStatus(401);
+    res.render('password-change', {
+      email: req.query.email,
+      accessToken: req.query.access_token,
+      userId: req.query.userId,
+      redirectUrl: '/api/users/change-password?access_token='+ req.query.access_token    
+    });
+    
+  });
+
 
 
 };

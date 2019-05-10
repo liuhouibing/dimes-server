@@ -12,6 +12,12 @@
 				id = "listCategories"
 				text="事件列表" 
 				icon="sap-icon://list"/>
+
+			<u:MenuItem
+				id = "changePassword"
+				text="修改密码" 
+				icon="sap-icon://log"/>
+
 			<u:MenuItem
 				id = "logout"
 				text="退出" 
