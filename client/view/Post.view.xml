@@ -76,7 +76,6 @@
 								<Column width="33%" id="unitTimestampColumn" hAlign="End" vAlign="Middle">
 									<Text text="{i18n>postDateLabel}" id="unitNumberColumnPostDate"/>
 								</Column>
-								<Column width="80px" id="flaggedColumn" demandPopin="true" vAlign="Middle"/>
 							</columns>
 
 							<items>
@@ -102,7 +101,7 @@
 											unit="{subTableModel>Currency}"/>
 											
 											<Text
-											text="{subTableModel>Timestamp}"/>
+											text="{= ${subTableModel>Timestamp}.substring(0, 8) }"/>
 
 									</cells>
 								</ColumnListItem>
