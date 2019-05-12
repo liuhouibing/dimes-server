@@ -125,6 +125,15 @@ sap.ui.define([
 				+ "?access_token=" + jQuery.sap.getUriParameters().get("access_token") 				
 				+ "&userId=" + jQuery.sap.getUriParameters().get("userId")
 				+ "&email="  + jQuery.sap.getUriParameters().get("email") );
+			}else if (oButton.item.sId == "print") {
+				var oViewModel = this.getModel("worklistView");
+				mobileLibrary.URLHelper.triggerEmail(
+					"dimes.businesscard@gmail.com",
+					oViewModel.getProperty("/shareSendEmailSubject")+
+					"userId=" + jQuery.sap.getUriParameters().get("userId")
+					+ "&email="  + jQuery.sap.getUriParameters().get("email"), 
+					oViewModel.getProperty("/shareSendEmailMessage")
+				);
 			}
 			
 		},
@@ -378,18 +387,16 @@ sap.ui.define([
 	
 			if (sQuery) {
 				aFilters.push(new Filter("Title", FilterOperator.EQ, sQuery));
-				aFilters.push(new Filter("Category", FilterOperator.EQ, sQuery));
+				//aFilters.push(new Filter("Category", FilterOperator.EQ, sQuery));
 				var oFilterToSetOnTheTable = new Filter({
 					filters: aFilters,
-					and: false  //OR
+					and: true  //OR
 				});
 				// filter binding
 				oBinding.filter(oFilterToSetOnTheTable);
 			}else{
 				oBinding.filter(null);
 			}
-			
-		
 		},
 
 		/**
@@ -425,18 +432,7 @@ sap.ui.define([
 			}
 		},
 
-		/**
-		 * Event handler when the share by E-Mail button has been clicked
-		 * @public
-		 */
-		onShareEmailPress: function () {
-			var oViewModel = this.getModel("worklistView");
-			mobileLibrary.URLHelper.triggerEmail(
-				null,
-				oViewModel.getProperty("/shareSendEmailSubject"),
-				oViewModel.getProperty("/shareSendEmailMessage")
-			);
-		}
+ 
 	});
 
 });

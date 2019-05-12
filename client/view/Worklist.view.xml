@@ -16,8 +16,8 @@
 				items="{
 					path: '/Posts',
 					sorter: {
-						path: 'Title',
-						descending: false
+						path: 'Timestamp',
+						descending: true
 						}
 					}"
 				busyIndicatorDelay="{worklistView>/tableBusyDelay}"
@@ -25,7 +25,7 @@
 				<headerToolbar>
 					<Toolbar>
 												
-						<Button text="新增" icon="sap-icon://create" press="onPostForm"  >
+						<Button text="新增记录" icon="sap-icon://create" press="onPostForm"  >
 							<layoutData>
 									<ToolbarLayoutData shrinkable="true" />
 							</layoutData>
@@ -37,16 +37,18 @@
 					</Toolbar>
 				</headerToolbar>
 				<columns>
-					<Column width="33%" id="nameColumn" vAlign="Middle">
+					<Column width="25%" id="nameColumn" >
 						<Text text="{i18n>TableNameColumnTitle}" id="nameColumnTitle"/>
 					</Column>
-					<Column width="33%" id="categoryColumn" vAlign="Middle" >
-						<Text text="{i18n>TableCategoryColumnTitle}" id="categoryColumnTitle"/>
+					<Column width="25%" id="categoryColumn" >
+						<Text text="{i18n>TableCategoryColumnTitle}" id="categoryColumnTitle" />
 					</Column>
-					<Column width="33%" id="unitNumberColumn" hAlign="End" vAlign="Middle">
+					<Column width="25%" id="unitNumberColumn"  >
 						<Text text="{i18n>TableUnitNumberColumnTitle}" id="unitNumberColumnTitle"/>
 					</Column>
-					<Column width="80px" id="flaggedColumn" demandPopin="true" vAlign="Middle"/>
+					<Column width="25%" id="dateColumn" >
+						<Text text="日期" id="unitNumberColumnDate"/>
+					</Column>
 				</columns>
 				<items >
 					<ColumnListItem
@@ -58,7 +60,9 @@
 								title="{Title}"/>
 							<Text
 								text="{Category}" />
+								
 							<ObjectNumber
+								  blocked="{= ${Flagged} === 1}"
 								number="{
 										path: 'Price',
 										formatter: '.formatter.numberUnit'
@@ -67,20 +71,10 @@
 										path: 'Price',
 										formatter: '.formatter.priceState'
 									}"
-								unit="{/Currency}"/>
-							<ToggleButton
-								id="flaggedButton"
-								tooltip="{i18n>flaggedTooltip}"
-								icon="sap-icon://decline"
-								visible = "{= ${Flagged}  > 0 ? true : false }"
-								enabled = "false"
-								pressed="{
-										path: 'Flagged',
-										type: '.types.flagged'
-									}"
-								
-								press="handleToggleButtonPress"
-								app:PostID = "{/PostID}"/>
+								unit="{Currency}"/>
+							<Text
+								text="{Timestamp}" />
+						
 						</cells>
 					</ColumnListItem>
 				</items>

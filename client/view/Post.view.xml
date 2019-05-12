@@ -55,7 +55,12 @@
 							width="auto"
 							class="sapUiResponsiveMargin"
 							growing="true"
-							items="{path:'subTableModel>/d/results'}"
+							items="{path:'subTableModel>/d/results',
+							sorter: {
+										path: 'Timestamp',
+										descending: true
+										}
+							}"							
 							>
 																
 							<columns>
@@ -83,7 +88,9 @@
 											title="{subTableModel>Title}"/>
 										<Text
 											text="{subTableModel>Category}"/>
+
 										<ObjectNumber
+											blocked="{= ${subTableModel>Flagged} === 1}"
 											number="{
 													path: 'subTableModel>Price',
 													formatter: '.formatter.numberUnit'
@@ -93,21 +100,9 @@
 													formatter: '.formatter.priceState'
 												}"
 											unit="{subTableModel>Currency}"/>
+											
 											<Text
 											text="{subTableModel>Timestamp}"/>
-
-											<ToggleButton
-												id="flaggedButton11"
-												tooltip="{i18n>flaggedTooltip}"
-												icon="sap-icon://decline"
-												visible = "{= ${subTableModel>Flagged}  > 0 ? true : false }"
-												enabled = "false"
-												pressed="{
-														path: 'subTableModel>Flagged',
-														type: '.types.flagged'
-													}"
-												/>
-
 
 									</cells>
 								</ColumnListItem>

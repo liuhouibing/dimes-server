@@ -14,6 +14,11 @@
 				icon="sap-icon://calendar"/>
 
 			<u:MenuItem
+				id = "print"
+				text="联系封册打印" 
+				icon="sap-icon://email"/>
+
+			<u:MenuItem
 				id = "changePassword"
 				text="修改密码" 
 				icon="sap-icon://shield"/>

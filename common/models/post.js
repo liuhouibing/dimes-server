@@ -6,27 +6,25 @@ module.exports = function(Post) {
         var myctx = LoopBackContext.getCurrentContext();
         var accessToken = myctx.get('accessToken');
 
-        //console.log(accessToken, ctx.query, ctx.query.where);
+      //  console.log(accessToken, ctx.query, ctx.query.where);
         
         if (accessToken == undefined) {
             var err = new Error("User's token is missing");
-            err.statusCode = 400;
-            //console.log(1);            
+            err.statusCode = 400;            
             next(err);
         }else if (ctx.query.where == undefined) {
-            ctx.query.where = { UserID: accessToken.userId };
-            //console.log(2);
+            ctx.query.where = { UserID: accessToken.userId };            
             next();
         } else if (ctx.query.where.UserID == undefined) {
-            ctx.query.where.UserID = accessToken.userId;
-            //console.log(3);
+            ctx.query.where.UserID = accessToken.userId;            
             next();
         } else {
             var err = new Error("User's token is missing - Others");
-            err.statusCode = 400;
-            //console.log(4);            
+            err.statusCode = 400;        
             next(err);
         };
+
+      //  console.log("->", ctx.query, ctx.query.where);
 
     });
 };

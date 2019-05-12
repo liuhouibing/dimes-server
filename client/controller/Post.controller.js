@@ -69,7 +69,7 @@ sap.ui.define([
 							data: JSON.stringify(oData),
 							contentType:"application/json",
 							success:function() {
-								MessageToast.show("记录状态跟新成功");			
+								MessageToast.show("记录状态跟新成功");													
 							}.bind(this),
 							error:function(err) {
 								MessageToast.show("记录状态更新失败", err);
@@ -79,7 +79,6 @@ sap.ui.define([
 				}
 			);
 			
-
 		},
 		/* =========================================================== */
 		/* internal methods                                            */
