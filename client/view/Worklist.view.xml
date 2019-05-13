@@ -33,7 +33,7 @@
 
 						<ToolbarSpacer />
 						<ToolbarSpacer />
-						<SearchField id="searchField" width="auto" search=".onFilterPosts"  placeholder="Empty SearchBox to Reset" />
+						<SearchField id="searchField" width="auto" search=".onFilterPosts"  placeholder="请输入姓名以查询" />
 					</Toolbar>
 				</headerToolbar>
 				<columns>
