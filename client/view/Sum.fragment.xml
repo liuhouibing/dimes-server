@@ -12,6 +12,8 @@
 							class="sapUiResponsiveMargin"
 							growing="true"
 							items="{path:'oSumModel>/d/results'}"
+							busyIndicatorDelay="{oSumViewModel>/tableBusyDelay}"
+							updateFinished=".onUpdateFinished"
 							>
 																
 							<columns>
@@ -52,7 +54,7 @@
 </VBox>   
 
   <buttons>
-      <Button id="btnSumCancel" text="Cancel" press="onSumCancel"/>
+      <Button id="btnSumCancel" text="取消" press="onSumCancel"/>
   </buttons>
 
 </Dialog>

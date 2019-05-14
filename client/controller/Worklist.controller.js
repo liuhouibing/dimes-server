@@ -73,6 +73,17 @@ sap.ui.define([
 			jQuery.sap.syncStyleClass("sapUiSizeCompact", this.getView(), this.getView()._oSumDialog);
 		}
 
+		var subtable = this.getView()._oSumDialog;
+				
+		var oSumViewModel = new JSONModel({
+			tableBusyDelay: 0
+		});
+		this.setModel(oSumViewModel, "oSumViewModel");
+		subtable.attachEventOnce("updateFinished", function () {				
+			oViewModel.setProperty("/tableBusyDelay", iOriginalBusyDelay);
+		});
+
+
 	},
 
 		handlePressOpenMenu: function(oEvent) {

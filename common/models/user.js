@@ -16,7 +16,7 @@ module.exports = function(User) {
       type: 'email',
       to: user.email,
       from: senderAddress,
-      subject: '感谢您的注册',
+      subject: '人情往来账-感谢您的注册',
       template: path.resolve(__dirname, '../../server/views/verify.ejs'),
       redirect: '/verified',
       user: user
@@ -28,7 +28,7 @@ module.exports = function(User) {
         return next(err);
       }
       context.res.render('response', {
-        title: '注册成功',
+        title: '人情往来账-注册成功',
         content: '请检查您的邮件，并点击验证链接，然后才可以登录',  redirectTo: '/',
         redirectToLinkText: '登录'
       });
@@ -54,7 +54,7 @@ module.exports = function(User) {
     User.app.models.Email.send({
       to: info.email,
       from: senderAddress,
-      subject: '密码重置',
+      subject: '人情往来账-密码重置',
       html: html
     }, function(err) {
       if (err) return console.log('> error sending password reset email');

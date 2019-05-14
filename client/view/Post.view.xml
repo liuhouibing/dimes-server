@@ -15,6 +15,7 @@
 			<ObjectHeader
 					id="objectHeader"
 					title="{Title}"
+					blocked="{= ${Flagged} === 1}"
 					number="{
 						path: 'Price',
 						formatter: '.formatter.numberUnit'
@@ -84,7 +85,7 @@
 									>
 									<cells>
 										<ObjectIdentifier
-											title="{subTableModel>Title}"/>
+											title="{subTableModel>Title}" titleActive="{= ${subTableModel>PostID} === ${PostID} }" />
 										<Text
 											text="{subTableModel>Category}"/>
 

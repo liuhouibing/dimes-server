@@ -1,7 +1,39 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<!doctype html>
+<html>
+<head>
+    <title>人情往来账</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <style>
+        body         { padding-top:20px; }
+        .center {
+          text-align: center;
+         }
+    </style>
+
+<script type="text/javascript">
+  function toggle_visibility(id, id2) {
+     var e = document.getElementById(id);
+     var e2 = document.getElementById(id2);
+
+     if(e.style.display == 'block')
+        e.style.display = 'none';        
+     else
+        e.style.display = 'block';
+
+      e2.style.display = 'none';
+  }
+</script>
+</head>
+
+<body>
+<div class="container">
 <h1><%= title %></h1>
 <% if (typeof content !== 'undefined') { %>
   <p><%= content %></p>
 <% } %>
 <a href="<%= redirectTo %>"><%= redirectToLinkText %></a>
+</div>
+</body>

@@ -59,10 +59,9 @@
 							<ObjectIdentifier
 								title="{Title}"/>
 							<Text
-								text="{Category}" />
-								
+								text="{Category}" />								
 							<ObjectNumber
-								  blocked="{= ${Flagged} === 1}"
+								blocked="{= ${Flagged} === 1}"
 								number="{
 										path: 'Price',
 										formatter: '.formatter.numberUnit'
