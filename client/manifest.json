@@ -24,7 +24,8 @@
 	"sap.ui": {
 		"technology": "UI5",
 		"icons": {
-			"icon": "sap-icon://task"
+			"icon": "favicon.ico",
+			"favIcon": "favicon.ico"
 		},
 		"deviceTypes": {
 			"desktop": true,
