@@ -6,6 +6,7 @@
 	xmlns:semantic="sap.m.semantic">
 	<semantic:FullscreenPage
 		id="page"
+		title="{i18n>worklistViewTitle}"
 		>
 		<semantic:content>
 			<Table
