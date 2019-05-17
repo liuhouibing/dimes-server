@@ -1,0 +1,9 @@
+{
+  "loopback-component-explorer":null,
+  "n-odata-server": {
+    "path": "/odata/*",
+    "maxpagesize": "200",
+    "odataversion": "2",
+    "useViaMiddleware": true
+  }
+}

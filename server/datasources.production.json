@@ -1,0 +1,34 @@
+{
+ 
+  "db": {
+    "host": "localhost",
+    "port": 3306,
+    "url": "mysql://root:GcbaFd01@localhost/walletjs",
+    "database": "walletjs",
+    "password": "GcbaFd01",
+    "name": "db",
+    "user": "root",
+    "connector": "mysql"
+  },
+  
+  "emailDs": {
+    "name": "emailDs",
+    "connector": "mail",
+    "transports": [
+      {
+        "type": "SMTP",
+        "host": "smtp.gmail.com",
+        "secure": true,
+        "port": 465,
+        "tls": {
+          "rejectUnauthorized": false
+        },
+        "auth": {
+          "user": "dimes.server@qq.com",
+          "pass": "password"
+        }
+      }
+    ]
+  }
+
+}
