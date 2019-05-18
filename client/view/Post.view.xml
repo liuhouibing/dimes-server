@@ -81,10 +81,11 @@
 							<items>
 								<ColumnListItem
 									vAlign="Middle"									
+									visible = "{= ${subTableModel>PostID} !== ${PostID} }"
 									>
 									<cells>
 										<ObjectIdentifier
-											title="{subTableModel>Title}" titleActive="{= ${subTableModel>PostID} === ${PostID} }" />
+											title="{subTableModel>Title}" />
 										<Text
 											text="{subTableModel>Category}"/>
 
