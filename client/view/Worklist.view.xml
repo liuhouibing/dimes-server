@@ -62,7 +62,7 @@
 							<Text
 								text="{Category}" />								
 							<ObjectNumber
-								blocked="{= ${Flagged} === 1}"
+								blocked ="{= ${Flagged} === 1 || ${Flagged} === true}"
 								number="{
 										path: 'Price',
 										formatter: '.formatter.numberUnit'
@@ -74,7 +74,6 @@
 								unit="{Currency}"/>
 							<Text
 								text="{= ${Timestamp}.substring(0,8) }" />
-						
 						</cells>
 					</ColumnListItem>
 				</items>

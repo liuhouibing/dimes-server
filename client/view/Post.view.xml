@@ -15,8 +15,7 @@
 			<ObjectHeader
 					id="objectHeader"
 					title="{Title}"
-					blocked="{= ${Flagged} === 1}"
-					number="{
+ 					number="{
 						path: 'Price',
 						formatter: '.formatter.numberUnit'
 					}"
@@ -90,7 +89,7 @@
 											text="{subTableModel>Category}"/>
 
 										<ObjectNumber
-											blocked="{= ${subTableModel>Flagged} === 1}"
+											blocked ="{= ${subTableModel>Flagged} === 1 || ${subTableModel>Flagged} === true}"
 											number="{
 													path: 'subTableModel>Price',
 													formatter: '.formatter.numberUnit'

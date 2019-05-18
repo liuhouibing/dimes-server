@@ -43,16 +43,33 @@ sap.ui.define([
 		},
  
 		handleToggleButtonPress: function(oEvent){
-			var oData =  oEvent.getSource().getBindingContext().getObject();
-			//console.log(oEvent.getSource().data("PostID"));
-			var oDataModel = this.getModel();
-			var msg = "记录标记删除后将不计入总数?"
-
+			var oData =  oEvent.getSource().getBindingContext().getObject();						
+			var myHandler = oEvent.getSource();
+			var msg = "";
+					
 			if (oData.Flagged == true) {
-				oData.Flagged = "1"	;
+			   msg = "记录标记删除后将不计入总数?";
 			} else {
-				msg = "取消删除记录标记";
-				oData.Flagged = "0";
+			   msg = "取消删除记录标记";
+			}
+			
+			function callback(oAction) { 
+				if(oAction =='NO') {
+					myHandler.setPressed(!oData.Flagged);
+					return;	
+				}
+				$.ajax({
+					url: "/api/Posts/" + oData.PostID +"?access_token=" + jQuery.sap.getUriParameters().get("access_token"),
+					type:"PUT",
+					data: JSON.stringify(oData),
+					contentType:"application/json",
+					success:function() {								
+						MessageToast.show("记录状态跟新成功");								
+					},
+					error:function(err) {
+						MessageToast.show("记录状态更新失败", err);
+					}
+				}); 
 			}
 
 			MessageBox.show(
@@ -60,23 +77,7 @@ sap.ui.define([
 					icon: MessageBox.Icon.INFORMATION,
 					title: "确认",
 					actions: [MessageBox.Action.YES, MessageBox.Action.NO],
-					onClose: function(oAction) { 
-						if(oAction =='NO') return;	
-						
-						$.ajax({
-							url: "/api/Posts/" + oData.PostID +"?access_token=" + jQuery.sap.getUriParameters().get("access_token"),
-							type:"PUT",
-							data: JSON.stringify(oData),
-							contentType:"application/json",
-							success:function() {
-								MessageToast.show("记录状态跟新成功");
-								this.getOwnerComponent().getModel().refresh(true);																
-							}.bind(this),
-							error:function(err) {
-								MessageToast.show("记录状态更新失败", err);
-							}
-						}); 
-					}.bind(this)
+					onClose: callback
 				}
 			);
 			
