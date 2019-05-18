@@ -15,7 +15,7 @@
 
 			<u:MenuItem
 				id = "print"
-				text="联系封册打印" 
+				text="技术支持" 
 				icon="sap-icon://email"/>
 
 			<u:MenuItem
