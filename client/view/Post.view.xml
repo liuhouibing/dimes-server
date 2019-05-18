@@ -25,6 +25,7 @@
 			<IconTabBar id="iconTabBar"
 						expanded="{=! ${device>/system/phone}}"
 						class="sapUiNoContentPadding"
+						selectedKey= "info"
 						>
 				<items>
 					<IconTabFilter icon="sap-icon://hint" key="info">
@@ -49,7 +50,7 @@
 							</form:content>
 						</form:SimpleForm>
 					</IconTabFilter>
-					<IconTabFilter icon="sap-icon://inspection" key="statistics" >
+					<IconTabFilter icon="sap-icon://customer-history" key="statistics" >
 					<Table
 							id="subtable"
 							width="auto"

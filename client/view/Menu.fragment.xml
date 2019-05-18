@@ -14,14 +14,14 @@
 				icon="sap-icon://calendar"/>
 
 			<u:MenuItem
-				id = "print"
-				text="技术支持" 
-				icon="sap-icon://email"/>
-
-			<u:MenuItem
 				id = "changePassword"
 				text="修改密码" 
 				icon="sap-icon://shield"/>
+
+			<u:MenuItem
+				id = "print"
+				text="技术支持" 
+				icon="sap-icon://email"/>
 
 			<u:MenuItem
 				id = "logout"

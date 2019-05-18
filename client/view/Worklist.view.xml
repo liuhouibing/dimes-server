@@ -21,8 +21,9 @@
 						descending: true
 						}
 					}"
-				busyIndicatorDelay="{worklistView>/tableBusyDelay}"
-				updateFinished=".onUpdateFinished">
+				busyIndicatorDelay="0"
+				busy="{worklistView>/busy}"
+				updateFinished="onUpdateFinished">
 				<headerToolbar>
 					<Toolbar>
 												

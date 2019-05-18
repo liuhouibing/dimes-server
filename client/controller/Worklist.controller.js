@@ -28,31 +28,16 @@ sap.ui.define([
 		 */
 		onInit: function () {
 			var oViewModel,
-				iOriginalBusyDelay,
 				oTable = this.byId("table");
-
-			// Put down worklist table's original value for busy indicator delay,
-			// so it can be restored later on. Busy handling on the table is
-			// taken care of by the table itself.
-			iOriginalBusyDelay = oTable.getBusyIndicatorDelay();
 
 			// Model used to manipulate control states
 			oViewModel = new JSONModel({
 				worklistTableTitle: this.getResourceBundle().getText("worklistTableTitle"),
 				shareSendEmailSubject: this.getResourceBundle().getText("shareSendEmailWorklistSubject"),
 				shareSendEmailMessage: this.getResourceBundle().getText("shareSendEmailWorklistMessage", [window.location.href]),
-				tableBusyDelay: 0
+				busy: true
 			});
 			this.setModel(oViewModel, "worklistView");
-
-			// Make sure, busy indication is showing immediately so there is no
-			// break after the busy indication for loading the view's meta data is
-			// ended (see promise 'oWhenMetadataIsLoaded' in AppController)
-			oTable.attachEventOnce("updateFinished", function () {
-				// Restore original busy indicator delay for worklist's table
-				oViewModel.setProperty("/tableBusyDelay", iOriginalBusyDelay);
-			});
-
 
 		//---DIMES added
 		if (!this.getView()._oDialog) {
@@ -73,17 +58,11 @@ sap.ui.define([
 			jQuery.sap.syncStyleClass("sapUiSizeCompact", this.getView(), this.getView()._oSumDialog);
 		}
 
-		var subtable = this.getView()._oSumDialog;
-				
+		var subtable = sap.ui.getCore().byId("subtable");
 		var oSumViewModel = new JSONModel({
-			tableBusyDelay: 0
+			busy: true
 		});
 		this.setModel(oSumViewModel, "oSumViewModel");
-		subtable.attachEventOnce("updateFinished", function () {				
-			oViewModel.setProperty("/tableBusyDelay", iOriginalBusyDelay);
-		});
-
-
 	},
 
 		handlePressOpenMenu: function(oEvent) {
@@ -381,7 +360,14 @@ sap.ui.define([
 
 			var sUser = this.getResourceBundle().getText("worklistCurrentUser", jQuery.sap.getUriParameters().get("userId"));
 			this.getModel("worklistView").setProperty("/worklistCurrentUser", sUser);
+			
+			this.getModel("worklistView").setProperty("/busy", false);
 		},
+
+		onUpdateSubtableFinished: function (oEvent) {
+			this.getModel("oSumViewModel").setProperty("/busy", false);
+		},
+
 
 		/**
 		 * Triggered by the SearchFields's 'search' event
