@@ -11,6 +11,7 @@ sap.ui.define([
 ], function (BaseController, JSONModel, formatter, FlaggedType, Filter, FilterOperator, mobileLibrary, MessageToast, MessageBox) {
 	"use strict";
 
+
 	return BaseController.extend("sap.ui.demo.bulletinboard.controller.Worklist", {
 		types : {
 			flagged: new FlaggedType()
@@ -136,18 +137,17 @@ sap.ui.define([
 				oLabelPrice.setText("支出金额 ( - )");
 			};
 		},
-
-
 		onPostForm: function(oEvent) {
 			var oData =
-			{	Currency: "",
+			{	Currency: '',
 				Title: '李四',
-				Description: '李四送礼',
+				Price: '100.00',
+				Timestamp: getDate(),
 				Category: '',
-				Contact: '1329929299',
-				Price: '100.00'
+				Contact: '',
+				Description: ''				
 			};
-
+ 			
 			//Cache the last category selection.
 			var oLastModel = this.getView().getModel("oModel");			
 			if (oLastModel) {
@@ -178,7 +178,9 @@ sap.ui.define([
 			var oRadioGroupIncomeExpense = sap.ui.getCore().byId("RadioGroupIncomeExpense"); 
 			var oInputTitle = sap.ui.getCore().byId("InputTitle"); 
 			var oInputPrice = sap.ui.getCore().byId("InputPrice"); 
-			var oComboBoxCategory = sap.ui.getCore().byId("ComboBoxCategory"); 
+			var oComboBoxCategory = sap.ui.getCore().byId("ComboBoxCategory"); 			
+			var oInputTimestamp = sap.ui.getCore().byId("InputTimestamp"); 
+
 
 			var error = false;
 			
@@ -196,6 +198,13 @@ sap.ui.define([
 				oInputPrice.setValueState(sap.ui.core.ValueState.Success);				
 			};
 			
+			if(oData.Timestamp <= 0 ) {			
+				oInputTimestamp.setValueState(sap.ui.core.ValueState.Error);
+				var error = true;
+			}else{
+				oInputTimestamp.setValueState(sap.ui.core.ValueState.Success);				
+			};
+
 			if(oData.Category == ''){				
 				oComboBoxCategory.setValueState(sap.ui.core.ValueState.Error);
 				var error = true;
@@ -213,31 +222,14 @@ sap.ui.define([
 				return;
 			}
 			
+			if (oData.Timestamp === getDate()) {
+				oData.Timestamp = oData.Timestamp + ' '  + getTime();
+			} else {
+				oData.Timestamp = oData.Timestamp + ' ' + "00:00:00";
+			}
+
 			oData.UserID = jQuery.sap.getUriParameters().get("userId");
-			//var OdataModel = this.getOwnerComponent().getModel();
-			//oData.PostID = Date.now().toString();
-			 function  getTime() {
-				var date = new Date();
-			
-				var month = date.getMonth() + 1;
-				var day = date.getDate();
-				var hour = date.getHours();
-				var min = date.getMinutes();
-				var sec = date.getSeconds();
-			
-				month = (month < 10 ? "0" : "") + month;
-				day = (day < 10 ? "0" : "") + day;
-				hour = (hour < 10 ? "0" : "") + hour;
-				min = (min < 10 ? "0" : "") + min;
-				sec = (sec < 10 ? "0" : "") + sec;
-			
-				var str = date.getFullYear()  + month + day + " " +  hour + ":" + min + ":" + sec;
-			
-					return str;
-			};
-
-			oData.Timestamp = getTime();  
-
+	 
 			$.ajax({
 				url: "/api/Posts?access_token=" + jQuery.sap.getUriParameters().get("access_token"),
 				type:"POST",
@@ -433,3 +425,31 @@ sap.ui.define([
 	});
 
 });
+
+
+
+function getDate() {
+	var date = new Date();		
+	var month = date.getMonth() + 1;
+	var day = date.getDate();
+
+	month = (month < 10 ? "0" : "") + month;
+	day = (day < 10 ? "0" : "") + day;
+
+	var str = date.getFullYear() + "-" + month + "-" + day;		
+	return str;
+}
+
+function getTime() {
+	var date = new Date();
+	var hour = date.getHours();
+	var min = date.getMinutes();
+	var sec = date.getSeconds();
+
+	 hour = (hour < 10 ? "0" : "") + hour;
+	min = (min < 10 ? "0" : "") + min;
+	sec = (sec < 10 ? "0" : "") + sec;
+
+	var str = hour + ":" + min + ":" + sec;		
+	return str;
+}

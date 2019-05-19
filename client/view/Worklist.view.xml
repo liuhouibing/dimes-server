@@ -74,7 +74,7 @@
 									}"
 								unit="{Currency}"/>
 							<Text
-								text="{= ${Timestamp}.substring(0,8) }" />
+								text="{= ${Timestamp}.substring(0,10) }" />
 						</cells>
 					</ColumnListItem>
 				</items>
