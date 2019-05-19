@@ -6,10 +6,10 @@
       
 <VBox class="sapUiSmallMargin">                        
             <Label text="事件"  required="true"/>
-            <TextArea id="InputName" value="{oCategoryModel>/Name}" width = "100%" />
+            <Input id="InputName" value="{oCategoryModel>/Name}" width = "100%" />
 
             <Label text="事件日期"  required="true"/>
-            <DatePicker id="InputEventDate" value="{oCategoryModel>/EventDate}" width = "100%"   valueFormat="yyyy-MM-dd" displayFormat="yyyy-MM-dd" />
+            <DatePicker id="InputEventDate" value="{oCategoryModel>/EventDate}" width = "100%"   valueFormat="yyyyMMdd" displayFormat="yyyyMMdd" />
 </VBox>   
 
   <buttons>

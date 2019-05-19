@@ -85,8 +85,8 @@ sap.ui.define([
 		handleMenuItemPress: function(oEvent){
 			var oData =
 			{	
-				CategoryID: '3',				
-				Name: '老人过寿',
+				CategoryID: '',				
+				Name: '',
 				EventDate: ""
 			};
 
