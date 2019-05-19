@@ -108,7 +108,7 @@
 											unit="{subTableModel>Currency}"/>
 											
 											<Text
-											text="{= ${subTableModel>Timestamp}.substring(0, 10) }"/>
+											text="{= ${subTableModel>Timestamp}.substring(0, 8) }"/>
 
 									</cells>
 								</ColumnListItem>

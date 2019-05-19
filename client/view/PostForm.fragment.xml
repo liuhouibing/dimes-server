@@ -17,7 +17,7 @@
             <Input id="InputPrice" value="{oModel>/Price}" />
 
             <Label text="日期"  required="true" id="LabelTimestamp" />
-            <DatePicker id="InputTimestamp" value="{oModel>/Timestamp}" width = "100%"   valueFormat="yyyy-MM-dd" displayFormat="yyyy-MM-dd" />
+            <DatePicker id="InputTimestamp" value="{oModel>/Timestamp}" width = "100%"   valueFormat="yyyyMMdd" displayFormat="yyyyMMdd" />
 
             <Label text="事件"  required="true"/>            
             <ComboBox id = "ComboBoxCategory" width = "100%"
