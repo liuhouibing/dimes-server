@@ -75,7 +75,7 @@
 									<Text text="{i18n>TableUnitNumberColumnTitle}" id="unitNumberColumnTitle"/>
 								</Column>
 								<Column width="33%" id="unitTimestampColumn" hAlign="End" vAlign="Middle">
-									<Text text="{i18n>postDateLabel}" id="unitNumberColumnPostDate"/>
+									<Text text="{i18n>postColumnHeader}"  id="unitNumberColumnPostDate"/>
 								</Column>
 							</columns>
 

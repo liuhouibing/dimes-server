@@ -49,7 +49,7 @@
 						<Text text="{i18n>TableUnitNumberColumnTitle}" id="unitNumberColumnTitle"/>
 					</Column>
 					<Column width="25%" id="dateColumn" >
-						<Text text="日期" id="unitNumberColumnDate"/>
+						<Text text="{i18n>postColumnHeader}" id="unitNumberColumnDate"/>
 					</Column>
 				</columns>
 				<items >
