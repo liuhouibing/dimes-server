@@ -436,7 +436,7 @@ function getDate() {
 	month = (month < 10 ? "0" : "") + month;
 	day = (day < 10 ? "0" : "") + day;
 
-	var str = date.getFullYear() + "-" + month + "-" + day;		
+	var str = date.getFullYear() +  month  + day;		
 	return str;
 }
 
