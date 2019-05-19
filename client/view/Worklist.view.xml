@@ -45,10 +45,10 @@
 					<Column width="25%" id="categoryColumn" >
 						<Text text="{i18n>TableCategoryColumnTitle}" id="categoryColumnTitle" />
 					</Column>
-					<Column width="20%" id="unitNumberColumn"  >
+					<Column width="25%" id="unitNumberColumn"  >
 						<Text text="{i18n>TableUnitNumberColumnTitle}" id="unitNumberColumnTitle"/>
 					</Column>
-					<Column width="30%" id="dateColumn" >
+					<Column width="25%" id="dateColumn" >
 						<Text text="{i18n>postColumnHeader}" id="unitNumberColumnDate"/>
 					</Column>
 				</columns>
