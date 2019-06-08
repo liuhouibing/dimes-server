@@ -17,15 +17,15 @@
     "transports": [
       {
         "type": "SMTP",
-        "host": "smtp.gmail.com",
+        "host": "smtp.qq.com",
         "secure": true,
         "port": 465,
         "tls": {
           "rejectUnauthorized": false
         },
         "auth": {
-          "user": "dimes.server@qq.com",
-          "pass": "password"
+          "user": "54065507@qq.com",
+          "pass": "Business01"
         }
       }
     ]
