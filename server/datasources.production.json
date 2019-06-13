@@ -17,7 +17,7 @@
     "transports": [
       {
         "type": "SMTP",
-        "host": "applesmtp.126.com",
+        "host": "smtp.163.com",
         "secure": true,
         "port": 465,
         "tls": {
