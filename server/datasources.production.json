@@ -17,14 +17,14 @@
     "transports": [
       {
         "type": "SMTP",
-        "host": "smtp.qq.com",
+        "host": "smtp.126.com",
         "secure": true,
-        "port": 465,
+        "port": 25,
         "tls": {
           "rejectUnauthorized": false
         },
         "auth": {
-          "user": "1973848107@qq.com",
+          "user": "lurrybusiness@126.com",
           "pass": "1973848107lylyly"
         }
       }
