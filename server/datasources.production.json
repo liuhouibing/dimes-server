@@ -17,14 +17,14 @@
     "transports": [
       {
         "type": "SMTP",
-        "host": "smtp.163.com",
+        "host": "smtp.mail.yahoo.com",
         "secure": true,
         "port": 465,
         "tls": {
           "rejectUnauthorized": false
         },
         "auth": {
-          "user": "lurrybusiness@126.com",
+          "user": "lurrybusiness@yahoo.com",
           "pass": "1973848107lylyly"
         }
       }
