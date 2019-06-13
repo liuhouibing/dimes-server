@@ -140,8 +140,8 @@ sap.ui.define([
 		onPostForm: function(oEvent) {
 			var oData =
 			{	Currency: '',
-				Title: '李四',
-				Price: '100.00',
+				Title: '',
+				Price: '',
 				Timestamp: getDate(),
 				Category: '',
 				Contact: '',
@@ -215,7 +215,7 @@ sap.ui.define([
 			if(oRadioGroupIncomeExpense.getSelectedIndex() == 0 ){				
 				oData.Price = Math.abs(oData.Price).toString();
 			}else{
-				oData.Price = (oData.Price * -1).toString();
+				oData.Price = (Math.abs(oData.Price) * -1).toString();
 			};
 
 			if (error) {
