@@ -10,7 +10,6 @@
     "user": "root",
     "connector": "mysql"
   },
-  
 
   "emailDs": {
     "name": "emailDs",
@@ -18,15 +17,15 @@
     "transports": [
       {
         "type": "SMTP",
-        "host": "localhost",
-        "secure": false,
-        "port": 25,
+        "host": "smtp.126.com",
+        "secure": true,
+        "port": 465, 
         "tls": {
-          "rejectUnauthorized": false
+          "rejectUnauthorized": true
         },
         "auth": {
-          "user": "lurry.business",
-          "pass": "Business@1"
+          "user": "lurrybusiness@126.com",
+          "pass": "Business01"
         }
       }
     ]
