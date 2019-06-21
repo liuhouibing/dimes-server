@@ -2,9 +2,9 @@
   "restApiRoot": "/api",
   "host": "www.rqwlz.cn",
   "port": 80,
-  "url": "http://www.rqwlz.cn/",
+  "url": "https://www.rqwlz.cn/",
   "swagger": {
-      "protocol": "http"
+      "protocol": "https"
   },
   "remoting": {
     "context": false,
