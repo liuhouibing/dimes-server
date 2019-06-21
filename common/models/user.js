@@ -47,7 +47,7 @@ module.exports = function(User) {
 
   //send password reset link when requested
   User.on('resetPasswordRequest', function(info) {
-    var url = 'http://' + config.host + ':' + config.port + '/reset-password';
+    var url = 'https://' + config.host + ':' + config.port + '/reset-password';
     var html = '点击 <a href="' + url + '?access_token=' +
         info.accessToken.id + '">这里</a> 重置您的密码';
 
