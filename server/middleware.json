@@ -34,6 +34,11 @@
   "files": {
     "loopback#static": {
       "params": "$!../client"
+    },
+    "loopback#static": {
+      "name": "well-known",
+      "paths": ["/.well-known"],
+      "params": "$!../well-known"
     }
   },
   "final": {
