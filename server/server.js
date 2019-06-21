@@ -28,14 +28,14 @@ var options = {
   cert: sslConfig.certificate
 };
 
-app.start = function (httpOnly) {
+app.start = function (httpOnly) { 
   if (process.env.NODE_ENV === 'production') {
     httpOnly = false;
   }
   else {
     httpOnly = true;
   };
-  
+
   var server = null;
   if (!httpOnly) {
     var options = {
