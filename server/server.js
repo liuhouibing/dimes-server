@@ -19,7 +19,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 // configure body parser
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(loopback.token());
 
@@ -28,10 +28,14 @@ var options = {
   cert: sslConfig.certificate
 };
 
-app.start = function(httpOnly) {
-  if (httpOnly === undefined) {
-    httpOnly = process.env.HTTP;
+app.start = function (httpOnly) {
+  if (process.env.NODE_ENV === 'production') {
+    httpOnly = false;
   }
+  else {
+    httpOnly = true;
+  };
+  
   var server = null;
   if (!httpOnly) {
     var options = {
@@ -42,7 +46,7 @@ app.start = function(httpOnly) {
   } else {
     server = http.createServer(app);
   }
-  server.listen(app.get('port'), function() {
+  server.listen(app.get('port'), function () {
     var baseUrl = (httpOnly ? 'http://' : 'https://') + app.get('host') + ':' + app.get('port');
     app.emit('started', baseUrl);
     console.log('LoopBack server listening @ %s%s', baseUrl, '/');
@@ -56,7 +60,7 @@ app.start = function(httpOnly) {
 
 // Bootstrap the application, configure models, datasources and middleware.
 // Sub-apps like REST API are mounted via boot scripts.
-boot(app, __dirname, function(err) {
+boot(app, __dirname, function (err) {
   if (err) throw err;
 
   // start the server if `$ node server.js`
