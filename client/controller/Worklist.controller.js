@@ -119,7 +119,7 @@ sap.ui.define([
 			}else if (oButton.item.sId == "print") {
 				var oViewModel = this.getModel("worklistView");
 				mobileLibrary.URLHelper.triggerEmail(
-					"dimes.businesscard@gmail.com",
+					"lurrybusiness@126.com",
 					oViewModel.getProperty("/shareSendEmailSubject")+
 					"userId=" + jQuery.sap.getUriParameters().get("userId")
 					+ "&email="  + jQuery.sap.getUriParameters().get("email"), 
