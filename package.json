@@ -25,6 +25,7 @@
     "n-odata-server": "^0.4.1",
     "nodemailer-direct-transport": "^3.3.2",
     "odata-parser": "^1.4.1",
+    "pm2": "^3.5.0",
     "request": "^2.88.0",
     "serve-favicon": "^2.0.1",
     "smtp-connection": "^4.0.2",

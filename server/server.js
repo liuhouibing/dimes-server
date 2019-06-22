@@ -28,22 +28,31 @@ var options = {
   cert: sslConfig.certificate
 };
 
-app.start = function(httpOnly) {
-  if (httpOnly === undefined) {
-    httpOnly = process.env.HTTP;
-  }
-  var server = null;
-  if (!httpOnly) {
+app.start = function() {
+	var env = process.env.NODE_ENV;
+	var server = null;
+
+
+  if (env === 'production') {
     var options = {
       key: sslConfig.privateKey,
       cert: sslConfig.certificate,
     };
     server = https.createServer(options, app);
+
+	//Redirect http to https
+	http.createServer(function (req, res) {
+		res.writeHead(301, { "Location": "https://" + req.headers['host'] + req.url });
+		res.end();
+	}).listen(80);
+
   } else {
     server = http.createServer(app);
   }
+
+
   server.listen(app.get('port'), function() {
-    var baseUrl = (httpOnly ? 'http://' : 'https://') + app.get('host') + ':' + app.get('port');
+    var baseUrl = (env !== 'production'? 'http://' : 'https://') + app.get('host') + ':' + app.get('port');
     app.emit('started', baseUrl);
     console.log('LoopBack server listening @ %s%s', baseUrl, '/');
     if (app.get('loopback-component-explorer')) {
@@ -61,5 +70,5 @@ boot(app, __dirname, function(err) {
 
   // start the server if `$ node server.js`
   if (require.main === module)
-    app.start(true);
+    app.start();
 });
