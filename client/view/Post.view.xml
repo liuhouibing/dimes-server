@@ -39,6 +39,9 @@
 								<Label text="联系方式"/>
 								<Text text="{Contact}"/>
 
+								<Label text="事件"/>
+								<Text text="{Category}"/>
+	
 								<Label text="{i18n>postDescriptionLabel}"/>								
 								<Text text="{Description}"/>
 

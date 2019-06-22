@@ -3,9 +3,9 @@
   "db": {
     "host": "localhost",
     "port": 3306,
-    "url": "mysql://root:GcbaFd01@localhost/walletjs",
+    "url": "mysql://root:root@localhost/walletjs",
     "database": "walletjs",
-    "password": "GcbaFd01",
+    "password": "root",
     "name": "db",
     "user": "root",
     "connector": "mysql"
@@ -24,8 +24,8 @@
           "rejectUnauthorized": false
         },
         "auth": {
-          "user": "dimes.server@qq.com",
-          "pass": "password"
+          "user": "liuhoubing@gmail.com",
+          "pass": "Tomcat@6"
         }
       }
     ]
