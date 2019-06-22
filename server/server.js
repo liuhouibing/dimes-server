@@ -70,5 +70,9 @@ boot(app, __dirname, function(err) {
 
   // start the server if `$ node server.js`
   if (require.main === module)
+<<<<<<< HEAD
     app.start();
+=======
+    app.start(false);
+>>>>>>> eef06f318fb3acef4becffb5112ac9007850072d
 });

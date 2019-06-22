@@ -7,7 +7,11 @@ var config = require('../../server/config.production.json');
 var path = require('path');
 
 //Replace this address with your actual address
+<<<<<<< HEAD
 var senderAddress = 'lurrybusiness@126.com';
+=======
+var senderAddress = 'lurrybusiness@126.com';  
+>>>>>>> eef06f318fb3acef4becffb5112ac9007850072d
 
 module.exports = function(User) {
   //send verification email after registration
