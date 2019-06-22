@@ -6,7 +6,6 @@
 var config = require('../../server/config.production.json');
 var path = require('path');
 
-//Replace this address with your actual address
 var senderAddress = 'lurrybusiness@126.com';
 
 module.exports = function(User) {
