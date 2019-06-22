@@ -101,11 +101,9 @@ module.exports = function (app) {
       email: req.query.email,
       accessToken: req.query.access_token,
       userId: req.query.userId,
-      redirectUrl: '/api/users/change-password?access_token='+ req.query.access_token    
+      redirectUrl: '/api/users/change-password?access_token='+ req.query.access_token
     });
-    
+
   });
-
-
 
 };

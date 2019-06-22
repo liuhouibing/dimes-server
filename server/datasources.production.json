@@ -10,25 +10,26 @@
     "user": "root",
     "connector": "mysql"
   },
-  
+
   "emailDs": {
     "name": "emailDs",
     "connector": "mail",
     "transports": [
       {
         "type": "SMTP",
-        "host": "smtp.mail.yahoo.com",
+        "host": "smtp.126.com",
         "secure": true,
-        "port": 465,
+        "port": 465, 
         "tls": {
-          "rejectUnauthorized": false
+          "rejectUnauthorized": true
         },
         "auth": {
-          "user": "lurrybusiness@yahoo.com",
-          "pass": "1973848107lylyly"
+          "user": "lurrybusiness@126.com",
+          "pass": "Business01"
         }
       }
     ]
   }
+
 
 }

@@ -3,11 +3,11 @@
 // This file is licensed under the MIT License.
 // License text available at https://opensource.org/licenses/MIT
 
-var config = require('../../server/config.json');
+var config = require('../../server/config.production.json');
 var path = require('path');
 
 //Replace this address with your actual address
-var senderAddress = 'dimes.businesscard@gmail.com'; 
+var senderAddress = 'lurrybusiness@126.com';
 
 module.exports = function(User) {
   //send verification email after registration
@@ -34,7 +34,7 @@ module.exports = function(User) {
       });
     });
   });
-  
+
   // Method to render
   User.afterRemote('prototype.verify', function(context, user, next) {
     context.res.render('response', {
@@ -47,7 +47,7 @@ module.exports = function(User) {
 
   //send password reset link when requested
   User.on('resetPasswordRequest', function(info) {
-    var url = 'http://' + config.host + ':' + config.port + '/reset-password';
+    var url = 'https://' + config.host + ':' + config.port + '/reset-password';
     var html = '点击 <a href="' + url + '?access_token=' +
         info.accessToken.id + '">这里</a> 重置您的密码';
 
