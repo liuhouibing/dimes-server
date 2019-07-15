@@ -59,6 +59,12 @@ sap.ui.define([
 			jQuery.sap.syncStyleClass("sapUiSizeCompact", this.getView(), this.getView()._oSumDialog);
 		}
 
+		if (!this.getView()._oPayDialog) {
+			this.getView()._oPayDialog = sap.ui.xmlfragment("sap.ui.demo.bulletinboard.view.Pay", this);
+			this.getView().addDependent(this.getView()._oPayDialog);			
+			jQuery.sap.syncStyleClass("sapUiSizeCompact", this.getView(), this.getView()._oPayDialog);
+		}
+
 		var subtable = sap.ui.getCore().byId("subtable");
 		var oSumViewModel = new JSONModel({
 			busy: true
@@ -66,6 +72,10 @@ sap.ui.define([
 		this.setModel(oSumViewModel, "oSumViewModel");
 	},
 
+	handlePressPay: function(oEvent) {
+		this.getView()._oPayDialog.open();
+	},
+	
 		handlePressOpenMenu: function(oEvent) {
 			var oButton = oEvent.getSource();
 
@@ -172,7 +182,9 @@ sap.ui.define([
 		onSumCancel: function(oEvent) {			
 			this.getView()._oSumDialog.close();
 		}, 
-	
+		onPayCancel: function(oEvent) {			
+			this.getView()._oPayDialog.close();
+		}, 
 		onPostFormSave: function(oEvent) {			
 			var oData = this.getView().getModel("oModel").getData();			
 			var oRadioGroupIncomeExpense = sap.ui.getCore().byId("RadioGroupIncomeExpense"); 

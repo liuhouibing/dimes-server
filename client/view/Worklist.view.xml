@@ -82,8 +82,11 @@
 		</semantic:content>				
 			
 		<semantic:customFooterContent >
+		<Button id="pay" visible="true" text="使用许可" enabled="true"	icon="sap-icon://payment-approval"	press="handlePressPay">
+		</Button>
+		<Label id="lblSeparator1" text=" | " />
 		<Label id="lblCurrentUser" text="{worklistView>/worklistCurrentUser}" />
-		<Label id="lblSeparator" text=" | " />
+		<Label id="lblSeparator2" text=" | " />
 		<Label id="tableHeader" text="{worklistView>/worklistTableTitle}" />		
 		<Button id="menu" visible="true" text="" enabled="true"	icon="sap-icon://menu"	press="handlePressOpenMenu">
 		</Button>

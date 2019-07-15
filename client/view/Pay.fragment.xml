@@ -1,0 +1,18 @@
+<core:FragmentDefinition
+   xmlns="sap.m"
+   xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+   xmlns:core="sap.ui.core" >
+   <Dialog
+      title="使用许可">
+ 
+
+ <VBox class="sapUiSmallMargin">                        
+ <Image class="bildAbstand" id="weixinpay" mode="Image" src="/weixinpay.jpg" width="100%"/> 
+</VBox>   
+
+  <buttons>
+      <Button id="btnPayCancel" text="关闭" press="onPayCancel"/>
+  </buttons>
+
+</Dialog>
+</core:FragmentDefinition>
