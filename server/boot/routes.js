@@ -50,11 +50,21 @@ module.exports = function (app) {
         }
         return;
       }
-
+     
+      //token.user is object constructed by functions, cann't be used directly. therefore token.user.validTo doesn't work too.
+      var userString = JSON.stringify(token);
+      var userObj = JSON.parse(userString);
+      var validTo = userObj.user.validTo;
+      
+      if (validTo === null) {
+        validTo = "试用";
+      } 
+      
       res.render('home', {
         email: req.body.email,
         accessToken: token.id,
         userId: token.userId,
+        validTo: validTo,
         redirectUrl: '/api/users/change-password?access_token=' + token.id + '&userId' + token.userId + '&email=' + req.body.email
       });
     });

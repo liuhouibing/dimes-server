@@ -63,6 +63,11 @@ sap.ui.define([
 			this.getView()._oPayDialog = sap.ui.xmlfragment("sap.ui.demo.bulletinboard.view.Pay", this);
 			this.getView().addDependent(this.getView()._oPayDialog);			
 			jQuery.sap.syncStyleClass("sapUiSizeCompact", this.getView(), this.getView()._oPayDialog);
+			var oData = {
+				validTo: jQuery.sap.getUriParameters().get("validTo")
+			}
+			var oPayViewModel = new JSONModel(oData);
+			this.setModel(oPayViewModel, "oPayViewModel");
 		}
 
 		var subtable = sap.ui.getCore().byId("subtable");
@@ -73,6 +78,8 @@ sap.ui.define([
 	},
 
 	handlePressPay: function(oEvent) {
+
+
 		this.getView()._oPayDialog.open();
 	},
 	
