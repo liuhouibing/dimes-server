@@ -14,7 +14,7 @@
 		labelSpanL="2"
 		labelSpanM="2"
 		labelSpanS="5">
-    <Label text="当前试用有效期至" />
+    <Label text="当前使用有效期至" />
     <Text text="{oPayViewModel>/validTo}" /> 
 	</form:SimpleForm>
                          
