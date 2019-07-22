@@ -19,7 +19,7 @@
 	</form:SimpleForm>
                          
  <Image class="bildAbstand" id="weixinpay" mode="Image" src="/weixinpay.jpg" width="100%"/> 
- <Text text="本服务可以无限期试用，但是试用期间数据不受到数据备份保护和加密保护。 付款后试用许可有效期在24小时内更新，期间可以继续以试用状态使用。有任何问题请联系客服：lurrybusiness@126.com" /> 
+ <Text text="本服务可以无限期试用，但是试用期间数据不受到数据备份保护和加密保护。 付款后使用许可有效期在24小时内更新，期间可以继续以试用状态使用。有任何问题请联系客服：lurrybusiness@126.com" /> 
 
 </VBox>   
 
