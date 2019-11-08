@@ -13,6 +13,15 @@ module.exports = function (app) {
   //login page
   app.get('/', function (req, res) {
     var credentials = dsConfig.emailDs.transports[0].auth;
+    res.render('index', {
+      email: credentials.user,
+      password: credentials.pass
+    });
+  });
+
+  //login page
+  app.get('/go', function (req, res) {
+    var credentials = dsConfig.emailDs.transports[0].auth;
     res.render('login', {
       email: credentials.user,
       password: credentials.pass
