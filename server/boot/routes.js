@@ -19,7 +19,7 @@ module.exports = function (app) {
     });
   });
  
-  //login page
+  //go page
   app.get('/go', function (req, res) {
     var credentials = dsConfig.emailDs.transports[0].auth;
     res.render('login', {
