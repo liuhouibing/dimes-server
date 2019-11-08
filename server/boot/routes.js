@@ -18,7 +18,7 @@ module.exports = function (app) {
       password: credentials.pass
     });
   });
-
+ 
   //login page
   app.get('/go', function (req, res) {
     var credentials = dsConfig.emailDs.transports[0].auth;
