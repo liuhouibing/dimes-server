@@ -40,7 +40,7 @@ module.exports = function (app) {
             title: '登录失败',
             content: err,
             redirectToEmail: '/api/users/' + err.details.userId + '/verify',
-            redirectTo: '/',
+            redirectTo: '/go',
             redirectToLinkText: '点击这里',
             userId: err.details.userId
           });
@@ -48,7 +48,7 @@ module.exports = function (app) {
           res.render('response', {
             title: '登录失败. 错误的用户名或密码',
             content: err,
-            redirectTo: '/',
+            redirectTo: '/go',
             redirectToLinkText: '请再次登录',
           });
         }
@@ -79,7 +79,7 @@ module.exports = function (app) {
     if (!req.accessToken) return res.sendStatus(401);
     User.logout(req.accessToken.id, function (err) {
       if (err) return next(err);
-      res.redirect('/');
+      res.redirect('/go');
     });
   });
 
@@ -93,7 +93,7 @@ module.exports = function (app) {
       res.render('response', {
         title: '密码重置',
         content: '请检查您的邮件，其中有具体的密码重置指导',
-        redirectTo: '/',
+        redirectTo: '/go',
         redirectToLinkText: '登录'
       });
     });
