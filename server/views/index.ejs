@@ -4,8 +4,7 @@
 <html>
 <head>
     <title>人情往来账</title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
     <link href="/dimes.ico" rel="shortcut icon" type="image/x-icon" />
 
     <style>
@@ -15,54 +14,206 @@
          }
     </style>
 
-<script type="text/javascript">
-  function toggle_visibility(id, id2) {
-     var e = document.getElementById(id);
-     var e2 = document.getElementById(id2);
-
-     if(e.style.display == 'block')
-        e.style.display = 'none';        
-     else
-        e.style.display = 'block';
-
-      e2.style.display = 'none';
-  }
-</script>
 
 </head>
 
-<p align="center"><img src="images/banner.jpg" width="1000" <br/><br/></p>
 
- <div class="center">
-    <h1><span class="fa fa-sign-in"></span> <a title="登录"  href=" /go">登 录</a> </h1>
-    <hr/>
-  </div>
+
+  <style>
+    * {box-sizing: border-box}
+    body {font-family: Verdana, sans-serif; margin:0}
+    .mySlides {display: none}
+    img {vertical-align: middle;}
+    
+    /* Slideshow container */
+    .slideshow-container {
+      max-width: 1000px;
+      position: relative;
+      margin: auto;
+    }
+    
+    /* Next & previous buttons */
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 16px;
+      margin-top: -32px;
+      color: grey;
+      font-weight: bold;
+      font-size: 38px;
+      transition: 0.6s ease;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+    }
+    
+    /* Position the "next button" to the right */
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+    
+    /* On hover, add a black background color with a little bit see-through */
+    .prev:hover, .next:hover {
+      background-color: rgba(0,0,0,0.8);
+    }
+    
+    /* Caption text */
+    .text {
+      color: #111111;
+      font-size: 15px;
+      padding: 8px 12px;
+      position: absolute;
+      bottom: 8px;
+      width: 100%;
+      text-align: center;
+    }
+    
+    /* Number text (1/3 etc) */
+    .numbertext {
+      color: #111111;
+      font-size: 15px;
+      padding: 28px 32px;
+      position: absolute;
+      bottom: 8px;
+      width: 100%;
+      text-align: center;
+    }
+    
+    /* The dots/bullets/indicators */
+    .dot {
+      cursor: pointer;
+      height: 15px;
+      width: 15px;
+      margin: 0 2px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.6s ease;
+    }
+    
+    .active, .dot:hover {
+      background-color: #717171;
+    }
+    
+    /* Fading animation */
+    .fade {
+      -webkit-animation-name: fade;
+      -webkit-animation-duration: 1.5s;
+      animation-name: fade;
+      animation-duration: 1.5s;
+    }
+    
+    @-webkit-keyframes fade {
+      from {opacity: .4}
+      to {opacity: 1}
+    }
+    
+    @keyframes fade {
+      from {opacity: .4}
+      to {opacity: 1}
+    }
+    
+    /* On smaller screens, decrease text size */
+    @media only screen and (max-width: 300px) {
+      .prev, .next,.text {font-size: 11px}
+    }
+    </style>
+
+    </head>
+    <body>
+    
+    
+    <p align="center"><img src="images/banner.jpg" width="1000" <br/><br/></p>
+
+    <div class="center">
+        <h1><span class="fa fa-sign-in"></span> <a title="登录"  href=" /go">登 录</a> </h1>
+        <hr/>
+      </div>
+       
+    <div class="slideshow-container">
+    
+    
+    <div class="mySlides fade">
+      <div class="numbertext">1 / 5</div>
+      <img src="images/iphone1.png" style="width:100%">
+      <div class="text">登录</div>
+    </div>
+    
+    <div class="mySlides fade">
+      <div class="numbertext">2 / 5</div>
+      <img src="images/iphone2.png" style="width:100%">
+      <div class="text">主界面的各种功能</div>
+    </div>
+    
+    <div class="mySlides fade">
+      <div class="numbertext">3 / 5</div>
+      <img src="images/iphone3.png" style="width:100%">
+      <div class="text">事件汇总</div>
+    </div>
+    
+    <div class="mySlides fade">
+      <div class="numbertext">4 / 5</div>
+      <img src="images/iphone4.png" style="width:100%">
+      <div class="text">账目详细</div>
+    </div>
+    
+    <div class="mySlides fade">
+      <div class="numbertext">5 / 5</div>
+      <img src="images/iphone5.png" style="width:100%">
+      <div class="text">人情往来历史</div>
+    </div>
+    
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    
+    </div>
+    
+    
+    <br>
+    
+    <div style="text-align:center">
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
+      <span class="dot" onclick="currentSlide(4)"></span>
+      <span class="dot" onclick="currentSlide(5)"></span>
+    </div>
+    
+    <script>
+    var slideIndex = 1;
+    showSlides(slideIndex);
+    
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+    
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+    
+    function showSlides(n) {
+      var i;
+      var slides = document.getElementsByClassName("mySlides");
+      var dots = document.getElementsByClassName("dot");
+      if (n > slides.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";
+      dots[slideIndex-1].className += " active";
+    }
+    
+    
+    </script>
+    
+    
   
-  <div class="center">
-      <p><font face="verdana" size="3">人情往来账目主要功能说明</font></p>
-  </div>
-
-
-<p align="center">新建事件</p>
-<p align="center"><img src="images/image001.png" height="500" width="1000" <br/><br/></p>
-
-<p align="center">事件列表</p>
-<p align="center"><img src="../images/image002.png"  height="500" width="1000" <br/><br/></p>
-
-<p align="center">新增往来账记录（收到/支出）</p>
-<p align="center"><img src="../images/image003.png"  height="500" width="1000" <br/><br/></p>
-
-<p align="center">例如</p>
-<p align="center"><img src="../images/image004.png"  height="500" width="1000" <br/><br/></p>
-
-<p align="center">可单独搜索与某个人的所有往来账</p>
-<p align="center"><img src="../images/image005.png"  height="500" width="1000" <br/><br/></p>
-
-<p align="center">某条往来账详细记录信息</p>
-<p align="center"><img src="../images/image006.png"  height="500" width="1000"  <br/><br/></p>
-
-<p align="center">与某人的全部往来账记录</p>
-<p align="center"><img src="../images/image007.png"  height="500" width="1000"  <br/><br/></p>
 
 
 <hr/>
