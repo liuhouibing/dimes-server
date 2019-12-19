@@ -39,7 +39,7 @@ module.exports = function(User) {
     context.res.render('response', {
       title: '一封包括验证链接的邮件已经被发送到您的邮箱',
       content: '请检查您的邮件，并点击验证链接，然后才可以登录',
-      redirectTo: '/',
+      redirectTo: '/go',
       redirectToLinkText: '登录'
     });
   });
@@ -66,7 +66,7 @@ module.exports = function(User) {
     context.res.render('response', {
       title: '密码修改成功',
       content: '请用新密码再次登录',
-      redirectTo: '/',
+      redirectTo: '/go',
       redirectToLinkText: '登录'
     });
   });
@@ -76,7 +76,7 @@ module.exports = function(User) {
     context.res.render('response', {
       title: '密码重置成功',
       content: '您的密码已经被成功重置',
-      redirectTo: '/',
+      redirectTo: '/go',
       redirectToLinkText: '登陆'
     });
   });
